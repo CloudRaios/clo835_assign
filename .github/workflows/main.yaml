@@ -31,18 +31,19 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: clo835-assign-db
         IMAGE_TAG: v0.1
-      run: 
-        cd clo835_fall2022_assignment1
+      run: |
+        cd clo835_fall2022
         ls -ltra
         # Docker build
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         # Unit test
-        # docker run -d -p 8080:8080 --name nodeapp $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        # docker ps
+        # docker run -d -p 80:8080 --name nodeapp $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        docker ps
         echo "Pause for 10 seconds to let container start"
         sleep 10
+        # curl localhost -vvv
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-		  
+  
   build_app:
     
     name: Build Image
@@ -68,14 +69,15 @@ jobs:
         ECR_REGISTR: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITOR: clo835-assign-app
         IMAGE_TA: v0.1
-      run: 
-        cd clo835_fall2022_assignment1
+      run: |
+        cd clo835_fall2022
         ls -ltra
         # Docker build
         docker build -t $ECR_REGISTR/$ECR_REPOSITOR:$IMAGE_TA .
         # Unit test
-        # docker run -d -p 8080:8080 --name nodeapp $ECR_REGISTR/$ECR_REPOSITOR:$IMAGE_TA
-        # docker ps
+        # docker run -d -p 80:8080 --name nodeapp $ECR_REGISTR/$ECR_REPOSITOR:$IMAGE_TA
+        docker ps
         echo "Pause for 10 seconds to let container start"
         sleep 10
+        # curl localhost -vvv
         docker push $ECR_REGISTR/$ECR_REPOSITOR:$IMAGE_TA
