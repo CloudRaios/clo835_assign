@@ -31,7 +31,7 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: clo835-assign-db
         IMAGE_TAG: v0.1
-      run: 
+      run: |
         cd clo835_fall2022_assignment1
         ls -ltra
         # Docker build
@@ -68,7 +68,7 @@ jobs:
         ECR_REGISTR: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITOR: clo835-assign-app
         IMAGE_TA: v0.1
-      run: 
+      run: |
         cd clo835_fall2022_assignment1
         ls -ltra
         # Docker build
