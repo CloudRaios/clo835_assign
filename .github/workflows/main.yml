@@ -8,7 +8,7 @@ jobs:
   
   build_db:
     
-    name: Build Image 
+    name: Build Image
     runs-on: ubuntu-latest
 
    
@@ -42,7 +42,7 @@ jobs:
         echo "Pause for 10 seconds to let container start"
         sleep 10
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-		
+		  
   build_app:
     
     name: Build Image
