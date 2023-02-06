@@ -32,10 +32,10 @@ jobs:
         ECR_REPOSITORY: clo835-assign-db
         IMAGE_TAG: v0.1
       run: |
-        cd clo835_fall2022
+        cd clo835_fall2022_assignment1
         ls -ltra
         # Docker build
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile_mysql .
         # Unit test
         # docker run -d -p 80:8080 --name nodeapp $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         docker ps
@@ -70,7 +70,7 @@ jobs:
         ECR_REPOSITOR: clo835-assign-app
         IMAGE_TA: v0.1
       run: |
-        cd clo835_fall2022
+        cd clo835_fall2022_assignment1
         ls -ltra
         # Docker build
         docker build -t $ECR_REGISTR/$ECR_REPOSITOR:$IMAGE_TA .
